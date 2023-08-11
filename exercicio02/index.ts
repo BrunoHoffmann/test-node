@@ -3,7 +3,7 @@ import express from 'express'
 const app = express();
 
 app.get('/bubble-sort', (req, res) => {
-  const data = [3,4,2,1,3,2,3,2,3]
+  const data = [5,3,2,4,7,1,0,6]
   const tamanho = data.length;
 
   let sorted;
