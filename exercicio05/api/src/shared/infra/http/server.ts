@@ -8,9 +8,7 @@ AppDataSource.initialize().then(() => {
     console.info('--------------------------------------------------'),
       console.info('--------------------------------------------------'),
       console.info('                                                  '),
-      console.info('                                                  '),
-      console.info('❤ Server started...', `http://localhost:${port}/`),
-      console.info('                                                  '),
+      console.info('Hi, I am working here ;)', `http://localhost:${port}/`),
       console.info('                                                  '),
       console.info('--------------------------------------------------'),
       console.info('--------------------------------------------------');

@@ -18,4 +18,10 @@ depois disso vai ser necessario rodar as migrations
 npm run typeorm -- -d ./src/shared/infra/typeorm/data-source.ts migration:run
 ```
 
+agora só dar um start na api em ambiente de dev
+
+```sh
+npm run dev
+```
+
 OBS: estava com pouco tempo ai tive que fazer meio que correndo para terminar, tem varios pontos que da para melhorar :)
