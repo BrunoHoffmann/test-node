@@ -21,7 +21,7 @@ export class InsertBrandTable1691753468151 implements MigrationInterface {
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(
       `
-        DELETE TABLE brands
+        DELETE FROM brands;
       `,
     );
   }

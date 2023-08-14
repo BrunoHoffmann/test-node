@@ -14,25 +14,21 @@ class VehiclesRepository implements IVehiclesRepository {
   }
 
   public async findAll(filter: IFilterListVehicleDTO): Promise<Vehicle[] | []> {
-    const vehicles = await this.ormRepository
+    return this.ormRepository
       .createQueryBuilder('vehicles')
       .leftJoinAndSelect('vehicles.brand', 'brands')
       .where({
         ...filter,
       })
       .getMany();
-
-    return vehicles;
   }
 
   public async findById(id: string): Promise<Vehicle | undefined> {
-    const vehicle = await this.ormRepository.findOne({
+    return this.ormRepository.findOne({
       where: {
         id,
       },
     });
-
-    return vehicle;
   }
 
   public async save(vehicle: Vehicle): Promise<any> {

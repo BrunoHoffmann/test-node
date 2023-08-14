@@ -18,6 +18,9 @@ class Vehicle {
   name: string;
 
   @Column()
+  description: string;
+
+  @Column()
   brand_id: string;
 
   @ManyToOne(() => Brand)
@@ -25,7 +28,7 @@ class Vehicle {
   brand: Brand;
 
   @Column()
-  year: string;
+  year: number;
 
   @Column()
   sold: boolean;

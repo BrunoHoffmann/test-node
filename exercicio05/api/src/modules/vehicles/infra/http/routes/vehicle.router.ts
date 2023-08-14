@@ -6,7 +6,9 @@ import VehiclesController from '../controllers/VehiclesController';
 const vehiclesController = new VehiclesController();
 const vehiclesRouter = Router();
 
-vehiclesRouter.get('/find', vehiclesController.index);
+vehiclesRouter.get('/find', vehiclesController.list);
+
+vehiclesRouter.get('/brands/find', vehiclesController.listBrands);
 
 vehiclesRouter.get('/:id', vehiclesController.show);
 
@@ -15,8 +17,9 @@ vehiclesRouter.post(
   celebrate({
     [Segments.BODY]: {
       name: Joi.string().required(),
+      description: Joi.string().required(),
       brand_id: Joi.string().required(),
-      year: Joi.string().required(),
+      year: Joi.number().required(),
       sold: Joi.boolean().required(),
     },
   }),
@@ -28,8 +31,9 @@ vehiclesRouter.put(
   celebrate({
     [Segments.BODY]: {
       name: Joi.string().required(),
+      description: Joi.string().required(),
       brand_id: Joi.string().required(),
-      year: Joi.string().required(),
+      year: Joi.number().required(),
       sold: Joi.string().required(),
     },
   }),
@@ -41,8 +45,9 @@ vehiclesRouter.patch(
   celebrate({
     [Segments.BODY]: {
       name: Joi.string().allow('').optional(),
+      description: Joi.string().allow('').optional(),
       brand_id: Joi.string().allow('').optional(),
-      year: Joi.string().allow('').optional(),
+      year: Joi.number().allow('').optional(),
       sold: Joi.string().allow('').optional(),
     },
   }),

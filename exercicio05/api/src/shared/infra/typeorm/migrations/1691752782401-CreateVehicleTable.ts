@@ -18,12 +18,16 @@ export class CreateVehicleTable1691752782401 implements MigrationInterface {
             type: 'varchar',
           },
           {
+            name: 'description',
+            type: 'varchar',
+          },
+          {
             name: 'brand_id',
             type: 'uuid',
           },
           {
             name: 'year',
-            type: 'varchar',
+            type: 'int',
           },
           {
             name: 'sold',

@@ -3,13 +3,22 @@ import { container } from 'tsyringe';
 import { instanceToInstance } from 'class-transformer';
 import ListVehicleService from '../../../services/ListVehiclesService';
 import ICreateVehiclesDTO from '../../../dtos/ICreateVehiclesDTO';
-import CreateVehicleService from '../../../services/CreateVehiclesService';
+import CreateVehicleService from '../../../services/CreateVehicleService';
 import ShowVehicleService from '../../../services/ShowVehicleService';
 import UpdateVehicleService from '../../../services/UpdateVehicleService';
 import DeleteVehicleService from '../../../services/DeleteVehicleService';
+import ListBrandsService from '../../../services/ListBrandsService';
 
 export default class VehiclesController {
-  public async index(request: Request, response: Response): Promise<any> {
+  public async listBrands(request: Request, response: Response): Promise<any> {
+    const listBrand = container.resolve(ListBrandsService);
+
+    const results = await listBrand.execute();
+
+    return response.json(instanceToInstance(results));
+  }
+
+  public async list(request: Request, response: Response): Promise<any> {
     let { brand } = request.query as any;
 
     const listVehicle = container.resolve(ListVehicleService);
